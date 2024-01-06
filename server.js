@@ -33,8 +33,8 @@ mongoose
   .then(() => {
     console.log("Connected to database");
     // listen to port
-    app.listen(process.env.PORT, () => {
-      console.log(`listening on port , ${process.env.PORT}`);
+    app.listen(process.env.PORT || 5000, () => {
+      console.log(`listening on port , ${process.env.PORT || 5000}`);
     });
   })
   .catch((error) => {
