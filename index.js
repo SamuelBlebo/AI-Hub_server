@@ -4,14 +4,13 @@ const express = require("express");
 const mongoose = require("mongoose");
 const aiRoutes = require("./routes/aiRoutes");
 
-// express app
-app = express();
+const app = express();
 
 // cors
 const corsOptions = {
   origin: "http://localhost:3000",
-  credentials: true, // access-control-allow-credentials:true
-  optionsSuccessStatus: 200, // Corrected property name
+  credentials: true,
+  optionsSuccessStatus: 200,
 };
 
 // middleware
@@ -26,16 +25,11 @@ app.use((req, res, next) => {
 // routes
 app.use("/api/ai", aiRoutes);
 
-//Conncet to DB
-
+// Connect to DB
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
     console.log("Connected to database");
-    // listen to port
-    app.listen(process.env.PORT || 5000, () => {
-      console.log(`listening on port , ${process.env.PORT || 5000}`);
-    });
   })
   .catch((error) => {
     console.log(error);
