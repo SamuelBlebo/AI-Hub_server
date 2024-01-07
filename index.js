@@ -34,3 +34,9 @@ mongoose
   .catch((error) => {
     console.log(error);
   });
+
+const port = "https://ai-hub-server.vercel.app/";
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
