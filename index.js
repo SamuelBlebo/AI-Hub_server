@@ -8,7 +8,7 @@ const app = express();
 
 // cors
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: "https://ai-hub-client.vercel.app/",
   credentials: true,
   optionsSuccessStatus: 200,
 };
