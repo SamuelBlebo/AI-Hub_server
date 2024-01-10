@@ -6,13 +6,6 @@ const aiRoutes = require("./routes/aiRoutes");
 
 const app = express();
 
-// // cors
-// const corsOptions = {
-//   origin: "https://ai-hub-client.vercel.app",
-//   credentials: true,
-//   optionsSuccessStatus: 200,
-// };
-
 // middleware
 app.use(express.json());
 
@@ -34,9 +27,12 @@ app.use("/api/ai", aiRoutes);
 
 // Connect to DB
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => {
-    console.log("Connected to database");
+    console.log("Connected to the database");
   })
   .catch((error) => {
     console.error("Error connecting to the database:", error);
