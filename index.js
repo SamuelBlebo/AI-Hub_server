@@ -1,8 +1,9 @@
 require("dotenv").config();
-const cors = require("cors");
+
 const express = require("express");
 const mongoose = require("mongoose");
 const aiRoutes = require("./routes/aiRoutes");
+const cors = require("cors");
 
 const app = express();
 
